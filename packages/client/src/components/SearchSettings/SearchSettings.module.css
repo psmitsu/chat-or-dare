@@ -1,0 +1,44 @@
+.container {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.25rem;
+    row-gap: 1.75rem;
+}
+
+.container * {
+    /*transition: filter 0.25s;*/
+}
+
+.container.inactive * {
+    filter: blur(0.5px) grayscale(0.5);
+}
+
+.cover {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.item.right {
+    justify-content: flex-end;
+}
+
+.item.header {
+    grid-column: 1 / 3;
+}
+
+@media screen and (max-width: 600px) {
+    .title {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,17 @@
+/* Two-column layout */
+
+.container {
+    height: 100%;
+    display: flex;
+    padding: 0.5em;
+}
+
+.middleColumn {
+    position: relative;
+
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+}

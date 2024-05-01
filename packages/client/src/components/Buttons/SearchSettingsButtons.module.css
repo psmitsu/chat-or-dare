@@ -1,0 +1,201 @@
+/* checkbox toggle */
+
+.toggleCheckbox {
+    display: none;
+}
+
+.toggleLabel {
+    display: block;
+
+    position: relative;
+
+    width: calc(var(--settings-checkbox-size) * 2);
+    height: var(--settings-checkbox-size);
+    border-radius: var(--settings-checkbox-size);
+
+    background-color: grey;
+
+    cursor: pointer;
+
+    transition: background-color var(--settings-transition-time);
+}
+
+.toggleButton {
+    position: absolute;
+    left: 3px;
+    top: 3px;
+
+    width: calc(var(--settings-checkbox-size) - 6px);
+    height: calc(var(--settings-checkbox-size) - 6px);
+    border-radius: var(--settings-checkbox-size);
+    box-shadow: 0 0 3px 0 rgba(10, 10, 10, 0.49);
+    
+    background-color: white;
+
+    transition: var(--settings-transition-time);
+}
+
+.toggleCheckbox:checked + .toggleLabel {
+    background-color: pink;
+}
+
+.toggleCheckbox:checked + .toggleLabel .toggleButton {
+    left: calc(100% - 3px);
+    transform: translateX(-100%);
+}
+
+.toggleLabel:active .toggleButton {
+    width: calc(var(--settings-checkbox-size) * 1.25);
+}
+
+/* radio set */
+
+.radioContainer {
+    display: flex;
+
+    position: relative;
+
+    width: calc(var(--settings-checkbox-size) * 2);
+    height: var(--settings-checkbox-size);
+
+    border-width: var(--settings-border-width);
+    border-style: solid;
+    border-radius: var(--settings-checkbox-size);
+    border-color: grey;
+}
+
+.radioContainer.disabled * {
+    color: grey !important;
+    border-color: grey !important;
+}
+
+.radioContainer.disabled .radioSelection {
+    opacity: 0;
+}
+
+.radioContainer.optional {
+    width: calc(var(--settings-checkbox-size) * 3);
+}
+
+.radioInput {
+    display: none;
+}
+
+/* radio set - label */
+.radioLabel {
+    flex: 0 0 auto;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: calc(var(--settings-checkbox-size) - 0px);
+    height: calc(var(--settings-checkbox-size) - 0px);
+
+    cursor: pointer;
+}
+
+/* radio set - label content */
+
+.radioLabelContent {
+    margin-top: calc(0% - 2 * var(--settings-border-width));
+    font-weight: bold;
+    margin-left: calc(0% - 2 * var(--settings-border-width));
+}
+
+.radioLabelContent.specified {
+    content: '';
+
+    width: calc(var(--settings-checkbox-size) / 3);
+    height: calc(var(--settings-checkbox-size) / 3);
+    border-radius: 50%;
+
+    background-color: grey;
+}
+
+.radioLabelContent.unspecified {
+    font-weight: bold;
+    color: grey;
+}
+
+/* radio set - label sign */
+
+.radioLabelSign {
+    position: absolute;
+    display: inline-block;
+
+    background-color: transparent;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: grey;
+
+    transition: color var(--settings-transition-time);
+}
+
+.radioLabelSign.female {
+    top: 105%;
+    left: 40%;
+    transform: translate(-50%,-50%);
+}
+
+.radioInput[value="female"]:checked + .radioLabel .radioLabelSign {
+    color: pink;
+}
+
+.radioLabelSign.male {
+    top: 0%;
+    left: 100%;
+    /* transform: rotate(-45deg); */
+    transform: translate(-50%, -50%) rotate(-40deg);
+}
+
+.radioInput[value="male"]:checked + .radioLabel .radioLabelSign {
+    color: lightblue;
+}
+
+/* radio set - selection highlighter */
+
+.radioSelection {
+    position: absolute;
+    top: calc(0% - var(--settings-border-width));
+
+    width: var(--settings-checkbox-size);
+    height: var(--settings-checkbox-size);
+
+    border-width: var(--settings-border-width);
+    border-style: solid;
+    border-radius: var(--settings-checkbox-size);
+    border-color: grey;
+
+    transition: var(--settings-transition-time);
+}
+
+.radioInput:active ~ .radioSelection {
+    width: calc(var(--settings-checkbox-size) * 1.25);
+}
+
+.radioInput[value="unspecified"]:checked ~ .radioSelection {
+    left: calc(0% - var(--settings-border-width));
+    transform: translateX(0%);
+    border-color: grey;
+}
+
+.radioInput[value="female"]:checked ~ .radioSelection {
+    left: calc(0% - var(--settings-border-width));
+    transform: translateX(0%);
+    border-color: pink;
+}
+
+.radioContainer.optional .radioInput[value="female"]:checked ~ .radioSelection {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.radioInput[value="male"]:checked ~ .radioSelection {
+    left: calc(100% + var(--settings-border-width));
+    transform: translateX(-100%);
+    border-color: lightblue;
+}

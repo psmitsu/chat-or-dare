@@ -1,0 +1,19 @@
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: var(--chatfooter-btn-size);
+    padding: 1em;
+
+    font-size: 1.25em;
+    font-weight: bold;
+
+    background: linear-gradient(to right, rgb(var(--bg-color-quaternary)), 40%, rgb(var(--bg-color-tertiary)));
+
+    cursor: pointer;
+}
+
+.button.stop {
+    background: linear-gradient(to right, rgb(var(--bg-color-tertiary)), 60%, rgb(var(--bg-color-quaternary)));
+}

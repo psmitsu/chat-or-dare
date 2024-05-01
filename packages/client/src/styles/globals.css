@@ -1,0 +1,112 @@
+html {
+    box-sizing: border-box;
+    height: 100%;
+    /* prevent address bar hiding */
+    overflow: hidden;
+    width: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+  height: 1px;
+  min-height: 100%;
+  overscroll-behavior-y: contain;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* prevent address bar hiding */
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+#__next {
+    flex: 1 0 auto;
+    height: 100%;
+    max-width: 100%;
+}
+
+:root {
+  --bg-color-primary: 21, 21, 23;
+  --bg-color-secondary: 48, 48, 51;
+  --bg-color-tertiary: 91, 31, 117;
+  --bg-color-quaternary: 231, 84, 128;
+
+  --max-width-chat: 700px;
+
+  --chatfooter-btn-size: 3.5rem;
+  --settings-checkbox-size: 2.25rem;
+  --settings-border-width: 4px;
+  --settings-transition-time: 0.2s;
+
+  --border-radius-primary: 50px;
+  --border-radius-secondary: 15px;
+
+  --footer-animation-duration: 500ms;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background: linear-gradient(to bottom right, rgb(var(--bg-color-primary)), 90%, rgb(var(--bg-color-tertiary)));
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media screen and (max-width: 400px) {
+    :root {
+        --chatfooter-btn-size: 3rem;
+        --settings-checkbox-size: 1.95rem;
+    }
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+button {
+    padding: 0.5em 1em;
+
+    color: rgba(255, 255, 255, 0.87);
+    font-weight: 600;
+    font-size: 0.9em;
+
+    background-color: rgb(var(--bg-color-primary));
+    border-radius: var(--border-radius-secondary);
+    border: none;
+    /* border-color: rgba(var(--bg-color-primary), 0.25); */
+}
+
+button:hover {
+    cursor: pointer;
+    filter: brightness(125%);
+}
+
+button:active {
+    filter: brightness(75%);
+}
+
+a {
+    cursor: pointer;
+    color: rgb(var(--bg-color-quaternary));
+    text-decoration: underline;
+}

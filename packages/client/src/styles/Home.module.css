@@ -1,0 +1,58 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    margin-bottom: 0.75rem;
+}
+
+.connection {
+    visibility: hidden;
+    margin: -0.5rem 0 0;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.connection.shown {
+    visibility: visible;
+}
+
+.desc {
+    margin-top: 0.5rem;
+
+    max-width: 60%;
+
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .desc {
+        max-width: 90%;
+
+        font-size: 0.9rem;
+    }
+}
+
+.controls {
+    margin-top: 2.0rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.startchatButtonContainer {
+    margin-top: 2.0rem;
+}
+
+.startchatSettings {
+    padding: 2.0rem;
+    border: calc(var(--settings-border-width) / 2) solid grey;
+    border-radius: 10px;
+}
